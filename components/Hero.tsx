@@ -21,9 +21,7 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-400 text-lg max-w-2xl mb-8">
-            I'm a Computer Science Engineering student passionate
-            about building scalable web applications, AI-powered
-            products, and creating meaningful user experiences.
+         
           </p>
 
         </div>

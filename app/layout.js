@@ -9,22 +9,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ 
-        margin: 0, 
-        display: "flex", 
-        flexDirection: "column", 
+      <body style={{
+        margin: 0,
+        display: "flex",
+        flexDirection: "column",
         minHeight: "100vh",
-        fontFamily: "sans-serif"
+        fontFamily: "sans-serif",
+        background: "#050509",
       }}>
         
         {/* ======= GLOBAL HEADER ======= */}
-        <header style={{ 
-          background: "#111", 
-          color: "#fff", 
-          padding: "1rem 2rem", 
-          display: "flex", 
-          justifyContent: "between", 
-          alignItems: "center" 
+        <header style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          background: "#111",
+          color: "#fff",
+          padding: "1rem 2rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          zIndex: 50,
         }}>
           <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
             <Link href="/" style={{ color: "#fff", textDecoration: "none" }}>MyPortfolio</Link>
@@ -38,15 +44,16 @@ export default function RootLayout({ children }) {
 
         {/* ======= MAIN PAGE CONTENT ======= */}
         {/* The {children} prop injects your projects/blogs code right here */}
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, paddingTop: '96px' }}>
           {children}
         </div>
 
-       <footer style={{ 
-          marginTop: '4rem', 
-          padding: '2rem 1rem', 
-          borderTop: '1px solid #eaeaea',
-          textAlign: 'center' 
+       <footer style={{
+          background: '#111',
+          color: '#fff',
+          padding: '2rem 1rem',
+          borderTop: '1px solid #222',
+          textAlign: 'center',
         }}>
           <div style={{ marginBottom: '1.5rem' }}>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Get In Touch</h3>
