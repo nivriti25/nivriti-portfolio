@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Project card hover effect for Projects page */
+.project-card {
+  transform: scale(1);
+  box-shadow: none;
+}
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+
+
+
+

@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { createClient } from '../utils/supabase' // Adjust dots if your utils folder sits elsewhere
+import { supabase } from '@/lib/supabase' // Adjust dots if your utils folder sits elsewhere
 
 export default async function BlogsPage() {
-  const supabase = createClient()
+ 
 
   // Fetch only the title and slug from the blogs table
   const { data: blogs, error } = await supabase
