@@ -2,7 +2,7 @@ import "./globals.css"; // Keeps your global styling active
 import Link from "next/link"; // Used for navigating without page reloads
 
 export const metadata = {
-  title: "My Portfolio",
+  title: "Nivriti",
   description: "Built with Next.js and Supabase",
 };
 
