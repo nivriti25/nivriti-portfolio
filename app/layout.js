@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           zIndex: 50,
         }}>
           <div style={{ fontWeight: "bold", fontSize: "1.2rem" }}>
-            <Link href="/" style={{ color: "#fff", textDecoration: "none" }}>MyPortfolio</Link>
+            <Link href="/" style={{ color: "#fff", textDecoration: "none" }}>Nivriti</Link>
           </div>
           <nav style={{ display: "flex", gap: "1.5rem", marginLeft: "auto" }}>
             <Link href="/" style={{ color: "#fff", textDecoration: "none" }}>Home</Link>
