@@ -30,6 +30,7 @@ body {
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -44,12 +45,8 @@ body {
   transform: scale(1);
   box-shadow: none;
 }
+
 .project-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-
-
-
-
-
