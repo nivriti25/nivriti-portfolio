@@ -1,55 +1,52 @@
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase' // keep Supabase integration intact
-
-const delayClasses = [
-  'animation-delay-[75ms]',
-  'animation-delay-[150ms]',
-  'animation-delay-[225ms]',
-  'animation-delay-[300ms]',
-  'animation-delay-[375ms]',
-]
+import { blogsData } from '@/lib/blogsData'
 
 export default async function BlogsPage() {
-  // Fetch only the title and slug from the blogs table
-  const { data: blogs, error } = await supabase
-    .from('blogs')
-    .select('title, slug, published_at')
-    .order('published_at', { ascending: false }) // Newest blogs first
-
-  if (error) {
-    console.error('Error fetching blogs:', error.message)
-    return <p className="p-8 text-zinc-300">Failed to load articles.</p>
-  }
+  const blogs = [...blogsData];
 
   return (
-    <main className="min-h-screen bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-10 text-center">
-          <p className="text-sm uppercase tracking-[0.32em] text-zinc-500 mb-3">Latest thoughts</p>
-          <h1 className="text-4xl sm:text-5xl font-semibold text-zinc-100">Blog</h1>
+    <main className="min-h-screen bg-[#f2fbff] py-28 px-6 select-none font-inter">
+      <div className="mx-auto max-w-4xl">
+        
+        {/* Page Header */}
+        <header className="mb-16 text-center">
+          <p className="uppercase tracking-[0.25em] text-brand text-xs font-mono font-bold mb-3">LATEST WRITING & IDEAS</p>
+          <h1 className="font-bricolage text-4xl sm:text-5xl font-extrabold text-[#084594] leading-tight">My Blog</h1>
         </header>
 
         {blogs?.length === 0 ? (
-          <p className="text-center text-zinc-400">No blog posts found. Add some in your Supabase dashboard!</p>
+          <div className="rounded-3xl border border-[#b7daff] bg-white p-12 text-center text-text-dark/65 font-medium shadow-sm">
+            No blog posts found. Check back later!
+          </div>
         ) : (
-          <section className="divide-y divide-zinc-900">
+          <section className="space-y-6">
             {blogs?.map((blog, idx) => {
-              const published = blog.published_at ? new Date(blog.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''
+              const published = blog.published_at 
+                ? new Date(blog.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) 
+                : '';
+              
               return (
-                <Link key={blog.slug} href={`/blogs/${blog.slug}`} className={`group block animate-fade-up ${delayClasses[idx % delayClasses.length]}`}>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between py-6 border-b border-zinc-900 transition-colors duration-300 hover:bg-zinc-900/30 px-4 rounded-lg">
-                    <div>
-                      <h2 className="text-xl font-medium text-zinc-100 transition-colors duration-300 group-hover:text-indigo-400">
+                <Link 
+                  key={blog.slug} 
+                  href={`/blogs/${blog.slug}`} 
+                  className="group block"
+                >
+                  <div className="border border-[#b7daff] rounded-3xl p-8 bg-white hover:bg-[#cfeaff]/20 transition-all duration-300 hover:border-brand shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                    <div className="space-y-2">
+                      {published && (
+                        <p className="text-brand/80 font-mono text-xs font-bold uppercase tracking-wider bg-[#cfeaff] px-2.5 py-0.5 rounded-full inline-block">
+                          {published}
+                        </p>
+                      )}
+                      <h2 className="font-bricolage text-2xl font-extrabold text-brand group-hover:text-brand-hover transition-colors leading-tight">
                         {blog.title}
                       </h2>
-                      {published ? (
-                        <p className="mt-2 text-sm text-zinc-500">{published}</p>
-                      ) : null}
                     </div>
-                    <div className="mt-4 sm:mt-0 flex items-center text-zinc-500">
-                      <span className="text-2xl transition-all duration-300 transform translate-x-0 opacity-0 group-hover:translate-x-1 group-hover:opacity-100 group-hover:text-indigo-400">
-                        →
-                      </span>
+
+                    <div className="flex items-center self-end sm:self-center">
+                      <div className="w-10 h-10 rounded-full border border-brand/20 flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all transform group-hover:translate-x-1.5 duration-300">
+                        <span className="text-xl leading-none">→</span>
+                      </div>
                     </div>
                   </div>
                 </Link>

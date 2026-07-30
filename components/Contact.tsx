@@ -16,7 +16,7 @@ export default function Contact() {
 
 					<div className="flex gap-4 mt-4 sm:mt-0 text-gray-400">
 						<a href="https://github.com/nivriti25" target="_blank" rel="noopener noreferrer" className="hover:text-white">GitHub</a>
-						<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
+						<a href="https://www.linkedin.com/in/nivritivarada/" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
 					</div>
 				</div>
 
