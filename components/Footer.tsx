@@ -65,7 +65,7 @@ export default function Footer() {
         {/* Copyright Bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-brand-light/60 gap-4">
           <p>© {new Date().getFullYear()} Nivriti Varada. All Rights Reserved.</p>
-          <p>Designed in the exact style of Blitz DND.</p>
+          
         </div>
       </div>
     </footer>
